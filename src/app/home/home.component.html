@@ -1,0 +1,43 @@
+<div class="rightPanel">
+  <form>
+    <div class="form-group">
+      <h1 class="text-center">Todo App</h1>
+
+      <div class="input-group-prepend">
+        <input
+          type="text"
+          class="col"
+          placeholder="Add Todo"
+          name="todo"
+          [(ngModel)]="task"
+        />
+
+        <span class="input-group-text" (click)="onAddClick()">
+          <i class="material-icons">add</i></span
+        >
+      </div>
+    </div>
+
+    <div class="data">
+      <ul class="list-unstyled">
+        <li *ngFor="let task of tasklist; let i = index">
+          <span>{{ task.task }} </span>
+          <i (click)="onDelete(this.task.id)" class="material-icons">
+            delete
+          </i>
+          <i (click)="onEditClick(this.task.id)" class="material-icons">
+            edit
+          </i>
+        </li>
+      </ul>
+      <button type="button" (click)="onDeleteAll()" class="btn btn-danger">
+        Remove All
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- <li *ngFor="let task of tasklist;let i = index;">{{i+1}}.<span>{{task.task}} </span> <i
+  (click)="onDelete(this.task.id)" class="material-icons">
+  delete </i> <i (click)="onEditClick()" class="material-icons">
+  edit </i></li> -->
